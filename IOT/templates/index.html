@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .firstContainer{
+            width: 100vw;
+            height: 800px;
+        }
+        .firstContainer .wrapper{
+            padding: 20px;
+        }
+        .firstContainer .navbar{
+            display: flex;
+            justify-content: space-between;
+            background-color: gray;
+        }
+        .firstContainer .navbar .leftnav ul .active{
+            color: #121212;
+        }
+        .firstContainer .navbar .leftnav ul{
+            display: flex;
+        }
+        .firstContainer .navbar .leftnav ul li{
+            list-style-type: none;
+            margin: 10px;
+            color: #fff;
+        }
+        .firstContainer .navbar .rightnav ul{
+            display: flex;
+        }
+        .firstContainer .navbar .rightnav ul li{
+            list-style-type: none;
+            margin: 10px;
+            color: #fff;
+        }
+        .firstContainer .wrapper .firstHomeContanier{
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            background-color: grey;
+        }
+        .firstContainer .wrapper .firstHomeContanier .right{
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;    
+            color: #fff;
+        }
+        .firstContainer .wrapper .secondHomeContanier{
+            margin-top: 40px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .firstContainer .wrapper .secondHomeContanier .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .firstContainer .wrapper .secondHomeContanier .center{
+            border-right: 2px solid #121212;
+        }
+        .firstContainer .wrapper .secondHomeContanier .right{
+            width: 600px;
+            height: auto;
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="firstContainer">
+        <div class="wrapper">
+            <div class="navbar">
+                <div class="leftnav">
+                    <ul>
+                        <li class="active">Home</li>
+                        <li>About us</li>
+                    </ul>
+                </div>
+                <div class="centernav">
+                    <h1>Crop Suggestor</h1>
+                </div>
+                <div class="rightnav">
+                    <ul>
+                        <li>logout</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="firstHomeContanier">
+                <div class="left">
+                    <div class="imgContainer">
+                        <img src="{% static '/images/kit.jpg'  %}" width="400px" height="400px" />
+                    </div>
+                </div>
+                <div class="right">
+                    <p style="font-size: xx-large;">IOT model for Smart Irrigation have been developed and data read from sensors are transmitted to ThingsSpeak, and from there we are fetching datas successfully. Based on the fetched data we will be suggesting suitable crops to the user !</p>
+                </div>
+            </div>
+            <div class="secondHomeContanier">
+                <div class="left">
+                    <h1>Check suitable plans based on NPK value : </h3>
+                    <button type="button" onclick="location.reload()"  style="width: 70px; height: 40px; font-size: larger;">Check</button>
+                </div>
+                <div class="center"></div>
+                <div class="right">
+                    <h1 style="color: gray;"><span style="color: green;">Suitable Plants :</span> {{ plant }}</h1>
+                    <h2 style="color: gray;"><span style="color: green;">Nutrition (NPK) :</span> {{ npk }} </h2>
+                    <h2 style="color: gray;"><span style="color: green;">Water Content :</span> {{ water }}</h2>
+                    <h2 style="color: red;">{{ msg }}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
